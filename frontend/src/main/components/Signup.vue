@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { sendRequest } from '@/main/utils/apiService'
+
 export default {
   name: 'Signup',
   data() {
@@ -29,41 +31,61 @@ export default {
       password: '',
       confirmPassword: '',
       errors: {},
-    };
+    }
   },
   methods: {
     validateForm() {
-      this.errors = {};
+      this.errors = {}
       if (!this.email) {
-        this.errors.email = 'Email обязателен';
+        this.errors.email = 'Email обязателен'
       } else if (!this.isValidEmail(this.email)) {
-        this.errors.email = 'Некорректный формат email';
+        this.errors.email = 'Некорректный формат email'
       }
 
       if (!this.login) {
-        this.errors.login = 'Логин обязателен';
+        this.errors.login = 'Логин обязателен'
       }
 
       if (!this.password) {
-        this.errors.password = 'Пароль обязателен';
+        this.errors.password = 'Пароль обязателен'
       }
 
       if (this.password !== this.confirmPassword) {
-        this.errors.confirmPassword = 'Пароли не совпадают';
+        this.errors.confirmPassword = 'Пароли не совпадают'
       }
 
-      return Object.keys(this.errors).length === 0;
+      return Object.keys(this.errors).length === 0
     },
-    submitForm() {
+    async submitForm() {
       if (this.validateForm()) {
-        // Здесь можно отправить данные на сервер
-        alert('Форма успешно отправлена!');
+        try {
+          // Подготовка данных формы
+          const formData = {
+            email: this.email,
+            login: this.login,
+            password: this.password,
+          }
+
+          // Отправка данных на сервер с использованием sendRequest
+          const response = await sendRequest('/register', 'POST', formData)
+
+          console.log(response)
+          if (response.status === 200) {
+            // Обработка успешного ответа
+            alert('Регистрация прошла успешно!')
+          } else {
+            // Обработка ошибок сервера
+            alert(`Ошибка: ${response.data.message || 'Неизвестная ошибка'}`)
+          }
+        } catch (error) {
+          // Обработка ошибок сети или других проблем
+          alert(`Произошла ошибка при отправке данных: ${error.message}`)
+        }
       }
     },
     isValidEmail(email) {
-      // Простая проверка формата email
-      const re = /\S+@\S+\.\S+/;
-      return re.test(email);
+      const re = /\S+@\S+\.\S+/
+      return re.test(email)
     },
   },
 }

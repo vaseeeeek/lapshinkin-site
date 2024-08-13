@@ -24,15 +24,15 @@ RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist
 # Создание конфигурационного файла Apache
 RUN echo '<VirtualHost *:80>\n\
     ServerAdmin webmaster@localhost\n\
-    DocumentRoot /var/www/html\n\
-    <Directory /var/www/html>\n\
-        Options Indexes FollowSymLinks\n\
-        AllowOverride None\n\
-        Require all granted\n\
+    DocumentRoot /var/www/html/src/public\n\
+    <Directory /var/www/html/src/public>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
     </Directory>\n\
     ErrorLog ${APACHE_LOG_DIR}/error.log\n\
     CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
-</VirtualHost>\n' > /etc/apache2/sites-available/000-default.conf
+    </VirtualHost>\n' > /etc/apache2/sites-available/000-default.conf
 
 # Копируем остальную часть кода в контейнер
 COPY . .

@@ -6,12 +6,13 @@ class User {
     public $username;
     public $password;
 
-    public static function create($username, $password) {
+    public static function create($username, $password, $email) {
         $pdo = connect();
         $stmt = $pdo->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
         $stmt->execute([
             'username' => $username,
-            'password' => password_hash($password, PASSWORD_BCRYPT)
+            'password' => password_hash($password, PASSWORD_BCRYPT),
+            'email'=> $email
         ]);
         return $pdo->lastInsertId();
     }
