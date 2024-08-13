@@ -1,0 +1,6 @@
+node_modules
+vendor
+.env
+*.log
+Dockerfile
+docker-compose.yml

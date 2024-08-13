@@ -1,0 +1,5 @@
+# Ignore vendor directory in backend
+backend/vendor/
+
+# Ignore node_modules directory in frontend
+frontend/node_modules/

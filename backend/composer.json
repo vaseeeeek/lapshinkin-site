@@ -1,0 +1,20 @@
+{
+    "name": "user/lapshinkin.ru-backend",
+    "type": "project",
+    "require": {
+        "firebase/php-jwt": "^6.10",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "MIT License",
+    "autoload": {
+        "psr-4": {
+            "User\\LapshinkinRuBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vasily Lapshinkin",
+            "email": "vaseeeeek53@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+.auth-form__nav__list {
+  display: flex;
+  width: 350px;
+  margin-bottom: 20px;
+}
+.auth-form__nav__item {
+  margin-right: 8px;
+  color: #999999;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  &.active {
+    color: #ffffff;
+  }
+}
+.auth-form__nav__item:last-child {
+  margin-left: auto;
+  margin-right: 0;
+}
