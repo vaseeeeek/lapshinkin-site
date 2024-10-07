@@ -26,6 +26,28 @@
         img.portfolio__image.lazyload(src="project2.jpg", alt="Скриншот Проекта 2")
         h3.portfolio__item-title Проект 2
         p.portfolio__item-description Адаптивное веб-приложение, разработанное для мобильных и десктопных устройств, с интеграцией бэкэнд-API.
+  section#clients.clients
+    h2.clients__title Клиенты и отзывы
+    .clients__logos
+      img.clients__logo.lazyload(src="client1_logo.jpg", alt="Логотип Клиента 1")
+      img.clients__logo.lazyload(src="client2_logo.jpg", alt="Логотип Клиента 2")
+    .clients__testimonials
+      blockquote.clients__testimonial
+        p.clients__testimonial-text "[Твое Имя] проделал фантастическую работу, интегрировав сложную серверную архитектуру и разработав функциональный интерфейс!"
+        cite.clients__testimonial-author - Клиент
+  section#contact.contact
+    h2.contact__title Свяжитесь со мной
+    form.contact__form(action="submit_form.php", method="POST")
+      label.contact__label(for="name") Имя:
+      input.contact__input(type="text", id="name", name="name", required)
+      
+      label.contact__label(for="email") Email:
+      input.contact__input(type="email", id="email", name="email", required)
+      
+      label.contact__label(for="message") Сообщение:
+      textarea.contact__textarea(id="message", name="message", required)
+      
+      button.contact__button(type="submit") Отправить сообщение
 
       
 </template>
@@ -35,7 +57,6 @@ export default {
   name: 'Home',
 }
 </script>
-
 
 <style
   lang="scss"
@@ -50,5 +71,15 @@ export default {
 <style
   lang="scss"
   src="@/main/assets/styles/components/Home/HomePortfolio.scss"
+  scoped
+></style>
+<style
+  lang="scss"
+  src="@/main/assets/styles/components/Home/HomeClients.scss"
+  scoped
+></style>
+<style
+  lang="scss"
+  src="@/main/assets/styles/components/Home/HomeContacts.scss"
   scoped
 ></style>

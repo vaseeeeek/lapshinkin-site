@@ -1,0 +1,26 @@
+# Общие файлы, которые не должны копироваться ни в один контейнер
+node_modules
+vendor
+*.log
+.env
+
+# Игнорировать файлы Docker и Compose, чтобы они не попали в контейнер
+docker-compose.yml
+docker/
+docker-compose.override.yml
+
+# Игнорировать папки сборки, кэша и временные файлы
+**/dist
+**/build
+**/.cache
+**/tmp
+
+# Специфично для фронтенда (если не нужно копировать документацию или конфигурации в контейнер)
+frontend/README.md
+frontend/.env.local
+frontend/*.log
+
+# Специфично для бэкенда (например, исходя из вашего старого .dockerignore)
+backend/README.md
+backend/.env.local
+backend/*.log

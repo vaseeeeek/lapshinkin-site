@@ -4,14 +4,14 @@ FROM php:7.4-apache
 # Устанавливаем рабочую директорию
 WORKDIR /var/www/html
 
-# Устанавливаем необходимые расширения PHP
+# Устанавливаем необходимые расширения PHP и Composer
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     && docker-php-ext-install pdo pdo_mysql \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Включаем поддержку .htaccess и устанавливаем DirectoryIndex
+# Включаем поддержку .htaccess и настраиваем Apache
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
 RUN a2enmod rewrite
@@ -20,8 +20,10 @@ RUN a2enmod rewrite
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist
 
+# Копируем весь исходный код проекта
+COPY . .
 
-# Создание конфигурационного файла Apache
+# Настраиваем Apache для работы с проектом
 RUN echo '<VirtualHost *:80>\n\
     ServerAdmin webmaster@localhost\n\
     DocumentRoot /var/www/html/src/public\n\
@@ -34,13 +36,8 @@ RUN echo '<VirtualHost *:80>\n\
     CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
     </VirtualHost>\n' > /etc/apache2/sites-available/000-default.conf
 
-# Копируем остальную часть кода в контейнер
-COPY . .
-
-# Указываем, что контейнер будет прослушивать порт 80
+# Экспонируем порт 80
 EXPOSE 80
 
-RUN service apache2 restart
-
-# Указываем команду по умолчанию для запуска Apache
+# Запуск Apache
 CMD ["apache2-foreground"]

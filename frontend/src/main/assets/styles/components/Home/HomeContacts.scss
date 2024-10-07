@@ -1,0 +1,82 @@
+/* Плавная анимация появления секции при прокрутке */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Секция Контактов */
+.contact {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Заголовок */
+.contact__title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #000;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Форма */
+.contact__form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInUp 1.4s ease forwards;
+}
+
+/* Поля ввода и текстовые поля */
+.contact__input,
+.contact__textarea {
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    transition: border-color 0.3s ease;
+}
+
+/* Hover-эффект для полей ввода */
+.contact__input:hover,
+.contact__textarea:hover {
+    border-color: #000; /* Изменение цвета границы при наведении */
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+    border-color: #007bff; /* Синяя граница при фокусе */
+    outline: none;
+}
+
+/* Кнопка отправки */
+.contact__button {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover-эффект для кнопки */
+.contact__button:hover {
+    background-color: #666;
+    transform: translateY(-3px); /* Подъем кнопки при наведении */
+}

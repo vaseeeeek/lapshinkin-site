@@ -1,0 +1,122 @@
+    Структура папок тома Windows 10
+    Серийный номер тома: 0000015A D8DA:257F
+    C:.
+    │   .gitattributes
+    │   .gitignore
+    │   README.md
+    │   
+    ├───backend
+    │   │   composer.json
+    │   │   composer.lock
+    │   │   
+    │   ├───Notes
+    │   │       git.txt
+    │   │       userstable.txt
+    │   │       
+    │   ├───src
+    │   │   ├───config
+    │   │   │       database.php
+    │   │   │       
+    │   │   ├───controllers
+    │   │   │       AuthController.php
+    │   │   │       
+    │   │   ├───models
+    │   │   │       User.php
+    │   │   │       
+    │   │   ├───public
+    │   │   │       .htaccess
+    │   │   │       index.php
+    │   │   │       
+    │   │   ├───routes
+    │   │   │       api.php
+    │   │   │       
+    │   │   └───services
+    │   │           JWTService.php
+    │   │           
+    │   
+    │                           
+    ├───docker
+    │   │   .dockerignore
+    │   │   .env
+    │   │   docker-compose.yml
+    │   │   
+    │   ├───backend
+    │   │       Dockerfile
+    │   │       
+    │   ├───database
+    │   └───frontend
+    │           Dockerfile
+    │           
+    └───frontend
+        │   .babelrc
+        │   package-lock.json
+        │   package.json
+        │   tsconfig.json
+        │   webpack.config.js
+        │   
+        │           
+        └───src
+            ├───admin
+            │   │   AppAdmin.vue
+            │   │   index.html
+            │   │   mainAdmin.js
+            │   │   
+            │   ├───components
+            │   │       AdminDashboard.vue
+            │   │       AdminHeader.vue
+            │   │       AdminSidebar.vue
+            │   │       
+            │   ├───router
+            │   │       index.js
+            │   │       
+            │   └───store
+            │           index.js
+            │           
+            └───main
+                │   App.vue
+                │   index.html
+                │   main.js
+                │   
+                ├───assets
+                │   └───styles
+                │       │   main.scss
+                │       │   normalize.css
+                │       │   reset.css
+                │       │   _variables.scss
+                │       │   
+                │       └───components
+                │           │   AuthForm.scss
+                │           │   Header.scss
+                │           │   ModalWrapper.scss
+                │           │   
+                │           └───Home
+                │                   HomeAbout.scss
+                │                   HomeHero.scss
+                │                   HomePortfolio.scss
+                │                   
+                ├───components
+                │       AuthButton.vue
+                │       AuthForm.vue
+                │       Footer.vue
+                │       Header.vue
+                │       Login.vue
+                │       ModalWrapper.vue
+                │       Navigation.vue
+                │       Reset.vue
+                │       Signup.vue
+                │       
+                ├───router
+                │       index.js
+                │       
+                ├───store
+                │       index.js
+                │       
+                ├───utils
+                │       apiService.ts
+                │       
+                └───views
+                        Blog.vue
+                        Home.vue
+                        Layout.vue
+                        Portfolio.vue
+                        

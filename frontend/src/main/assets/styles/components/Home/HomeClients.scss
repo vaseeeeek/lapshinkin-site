@@ -1,0 +1,66 @@
+/* Плавная анимация появления элементов клиентов */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clients and Testimonials Section */
+.clients {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.clients__title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #000;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Логотипы клиентов с эффектами */
+.clients__logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.clients__logo {
+    max-width: 150px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover-эффект для логотипов клиентов */
+.clients__logo:hover {
+    opacity: 1;
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Отзывы клиентов */
+.clients__testimonial {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    color: #666;
+    opacity: 0;
+    animation: fadeInUp 1.4s ease forwards;
+}
+
+.clients__testimonial-author {
+    display: block;
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+}
