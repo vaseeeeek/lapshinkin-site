@@ -1,0 +1,84 @@
+/* Плавная анимация появления элементов портфолио при прокрутке */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Секция Портфолио */
+.portfolio {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.portfolio__title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #000;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Сетка с проектами */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Стиль карточек проектов */
+.portfolio__item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-эффект: подъем карточки и добавление тени */
+.portfolio__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio__image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover-эффект для изображения */
+.portfolio__image:hover {
+  transform: scale(1.05);
+}
+
+/* Стиль заголовков и описания проектов */
+.portfolio__item-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.portfolio__item-description {
+  font-size: 1em;
+  color: #666;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+}
+ 

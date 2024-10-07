@@ -1,0 +1,114 @@
+/* Header */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект изменения шапки при прокрутке */
+.header.scrolled {
+  background-color: #000; /* Фон становится черным */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Логотип */
+.header__logo-link {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000; /* Черный цвет текста по умолчанию */
+  transition: color 0.3s ease;
+}
+
+.header.scrolled .header__logo-link {
+  color: #fff; /* Белый цвет для логотипа при прокрутке */
+}
+
+.header__logo-link:hover {
+  color: #666; /* При наведении меняем цвет */
+}
+
+/* Навигация */
+.header__nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.header__nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header__nav-link {
+  font-size: 1em;
+  color: #000; /* Черный цвет текста по умолчанию */
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.header.scrolled .header__nav-link {
+  color: #fff; /* Белый цвет для ссылок при прокрутке */
+}
+
+/* Hover-эффект для навигационных ссылок */
+.header__nav-link:hover {
+  color: #666;
+}
+
+.header.scrolled .header__nav-link:hover {
+  color: #ccc; /* Светло-серый цвет при наведении */
+}
+
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #666;
+  transition: width 0.3s ease;
+}
+
+.header__nav-link:hover::after {
+  width: 100%; /* Подчеркивание при наведении */
+}
+
+.header.scrolled .header__nav-link::after {
+  background-color: #fff; /* Подчеркивание становится белым при прокрутке */
+}
+
+/* CTA кнопка */
+.header__cta {
+  margin-left: auto;
+}
+
+.header__cta-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header.scrolled .header__cta-button {
+  background-color: #fff; /* Белый фон кнопки при прокрутке */
+  color: #000; /* Черный текст для кнопки */
+}
+
+.header__cta-button:hover {
+  background-color: #666;
+  transform: translateY(-3px); /* Подъем кнопки при наведении */
+}
+
+.header.scrolled .header__cta-button:hover {
+  background-color: #ddd; /* Более светлый цвет при наведении */
+}
